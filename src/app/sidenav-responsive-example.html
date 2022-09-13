@@ -1,0 +1,89 @@
+<div class="example-container" [class.example-is-mobile]="mobileQuery.matches" *ngIf="shouldRun">
+  <mat-toolbar color="primary" class="example-toolbar">
+    <h1 class="example-app-name">Responsive App</h1>
+  </mat-toolbar>
+
+  <mat-sidenav-container class="example-sidenav-container"
+                         [style.marginTop.px]="mobileQuery.matches ? 56 : 0">
+    <mat-sidenav #snav [mode]="mobileQuery.matches ? 'over' : 'side'"
+                 [fixedInViewport]="mobileQuery.matches" fixedTopGap="56">
+                 <mat-nav-list>
+                  <button mat-list-item routerLink="." >📊</button>
+                  <button mat-list-item routerLink="." >🦻🏼</button>
+                  <button mat-list-item [matMenuTriggerFor]="sehloesung">👓</button>
+                  <button mat-list-item routerLink="." >🦸🏼‍♀️</button>
+                  <button mat-icon-button (click)="snav.toggle()"><mat-icon>keyboard_double_arrow_left</mat-icon></button>
+                 </mat-nav-list>
+                 
+                 <!-- #docregion sub-menu -->
+                 <mat-menu #sehloesung="matMenu">
+                   <button mat-menu-item >Brillen</button>
+                   <button mat-menu-item [matMenuTriggerFor]="invertebrates">Kontaktlinsen</button>
+                   <button mat-menu-item [matMenuTriggerFor]="invertebrates">Link Ebene 2</button>
+                 </mat-menu>
+                 
+                 <mat-menu #vertebrates="matMenu">
+                   <button mat-menu-item [matMenuTriggerFor]="fish">Fishes</button>
+                   <button mat-menu-item [matMenuTriggerFor]="amphibians">Amphibians</button>
+                   <button mat-menu-item [matMenuTriggerFor]="reptiles">Reptiles</button>
+                   <button mat-menu-item>Birds</button>
+                   <button mat-menu-item>Mammals</button>
+                 </mat-menu>
+                 <!-- #enddocregion sub-menu -->
+                 
+                 <mat-menu #invertebrates="matMenu">
+                   <button mat-menu-item>Insects</button>
+                   <button mat-menu-item>Molluscs</button>
+                   <button mat-menu-item>Crustaceans</button>
+                   <button mat-menu-item>Corals</button>
+                   <button mat-menu-item>Arachnids</button>
+                   <button mat-menu-item>Velvet worms</button>
+                   <button mat-menu-item>Horseshoe crabs</button>
+                 </mat-menu>
+                 
+                 <mat-menu #fish="matMenu">
+                   <button mat-menu-item>Baikal oilfish</button>
+                   <button mat-menu-item>Bala shark</button>
+                   <button mat-menu-item>Ballan wrasse</button>
+                   <button mat-menu-item>Bamboo shark</button>
+                   <button mat-menu-item>Banded killifish</button>
+                 </mat-menu>
+                 
+                 <mat-menu #amphibians="matMenu">
+                   <button mat-menu-item>Sonoran desert toad</button>
+                   <button mat-menu-item>Western toad</button>
+                   <button mat-menu-item>Arroyo toad</button>
+                   <button mat-menu-item>Yosemite toad</button>
+                 </mat-menu>
+                 
+                 <mat-menu #reptiles="matMenu">
+                   <button mat-menu-item>Banded Day Gecko</button>
+                   <button mat-menu-item>Banded Gila Monster</button>
+                   <button mat-menu-item>Black Tree Monitor</button>
+                   <button mat-menu-item>Blue Spiny Lizard</button>
+                   <button mat-menu-item disabled>Velociraptor</button>
+                 </mat-menu>
+                 
+    </mat-sidenav>
+
+    <mat-sidenav-content>
+    
+    <button mat-icon-button (click)="snav.toggle()"><mat-icon>keyboard_double_arrow_right</mat-icon></button>
+    
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+  
+
+
+<!-- Copyright 2022 Google LLC. All Rights Reserved.
+    Use of this source code is governed by an MIT-style license that
+    can be found in the LICENSE file at https://angular.io/license -->
+    
+</div>
+
+<div *ngIf="!shouldRun">Please open on Stackblitz to see result</div>
+
+
+<!-- Copyright 2022 Google LLC. All Rights Reserved.
+    Use of this source code is governed by an MIT-style license that
+    can be found in the LICENSE file at https://angular.io/license -->
